@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyPC - 나만의 컴퓨터</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== 헤더 ===== -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">My<span>PC</span></a>
+      <div class="header-buttons">
+        <button class="btn-outline">장바구니 <span class="cart-badge" style="display:none">0</span></button>
+        <button class="btn-outline">로그인</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== 네비게이션 ===== -->
+  <nav class="nav">
+    <div class="container">
+      <ul>
+        <li><a href="index.html">모든 부품</a></li>
+        <li><a href="index.html">커뮤니티</a></li>
+        <li><a href="index.html">주변 기기</a></li>
+        <li><a href="my-computer.html" class="active">나만의 컴퓨터</a></li>
+        <li><a href="pc-recommend.html">PC 추천</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container">
+
+    <div class="page-title">
+      <h1>나만의 컴퓨터</h1>
+      <p>왼쪽에서 부품 종류를 선택하면 오른쪽에 해당 부품 목록이 나타납니다. 부품을 클릭하면 선택됩니다.</p>
+    </div>
+
+    <!-- ===== 부품 조립 박스 =====
+         왼쪽 탭(카테고리): JavaScript 클릭 이벤트로 동작
+         오른쪽 부품 목록: JS가 active 클래스로 표시/숨김, 클릭 선택 처리
+         data-target: 탭이 열어야 할 부품 목록 종류 (mb/cpu/gpu/ram/psu/case/cooler)
+         data-part: 부품 항목의 종류
+         data-name / data-price: 부품 정보
+    ===== -->
+    <div class="builder-box">
+      <div class="builder-layout">
+
+        <!-- 왼쪽: 부품 종류 선택 버튼 (button.part-tab) -->
+        <div class="part-buttons">
+          <button class="part-tab active" data-target="mb">메인보드<span class="selected-name" id="sel-mb">ASUS PRIME B650M-A II</span></button>
+          <button class="part-tab" data-target="cpu">CPU<span class="selected-name" id="sel-cpu">AMD 라이젠5 7500F</span></button>
+          <button class="part-tab" data-target="gpu">GPU<span class="selected-name" id="sel-gpu">RTX 4060 8GB</span></button>
+          <button class="part-tab" data-target="ram">RAM<span class="selected-name" id="sel-ram">삼성 DDR5-5600 16GB</span></button>
+          <button class="part-tab" data-target="psu">PSU<span class="selected-name" id="sel-psu">600W 80PLUS 브론즈</span></button>
+          <button class="part-tab" data-target="case">CASE<span class="selected-name" id="sel-case">미들타워 강화유리</span></button>
+          <button class="part-tab" data-target="cooler">COOLER<span class="selected-name" id="sel-cooler">타워형 공랭 쿨러</span></button>
+        </div>
+
+        <!-- 오른쪽: 선택한 종류의 부품 목록 -->
+        <div class="part-list-wrap">
+          <h3>부품 목록에서 원하는 제품을 클릭해 선택하세요</h3>
+
+          <!-- 메인보드 목록 (초기 표시: active 클래스) -->
+          <div class="part-list list-mb active">
+            <div class="part-item selected" data-part="mb" data-name="ASUS PRIME B650M-A II" data-price="189000">
+              <span class="star">&#9733;</span>
+              <div class="info"><strong>ASUS PRIME B650M-A II</strong><span>가성비 좋은 마이크로ATX 보드</span></div>
+              <span class="item-price">189,000원</span>
+            </div>
+            <div class="part-item" data-part="mb" data-name="MSI MAG B650 TOMAHAWK" data-price="259000">
+              <span class="star">&#9734;</span>
+              <div class="info"><strong>MSI MAG B650 TOMAHAWK</strong><span>확장성 좋은 ATX 보드</span></div>
+              <span class="item-price">259,000원</span>
+            </div>
+            <div class="part-item" data-part="mb" data-name="GIGABYTE B650 AORUS ELITE" data-price="235000">
+              <span class="star">&#9734;</span>
+              <div class="info"><strong>GIGABYTE B650 AORUS ELITE</strong><span>안정적인 전원부 구성</span></div>
+              <span class="item-price">235,000원</span>
+            </div>
+            <div class="part-item" data-part="mb" data-name="ASUS ROG STRIX X670E-E" data-price="519000">
+              <span class="star">&#9734;</span>
+              <div class="info"><strong>ASUS ROG STRIX X670E-E</strong><span>최상위 오버클럭용 보드</span></div>
+              <span class="item-price">519,000원</span>
+            </div>
+          </div>
+
+          <!-- CPU 목록 -->
+          <div class="part-list list-cpu">
+            <div class="part-item selected" data-part="cpu" data-name="AMD 라이젠5 7500F" data-price="219000">
+              <span class="star">&#9733;</span>
+              <div class="info"><strong>AMD 라이젠5 7500F</strong><span>6코어 12스레드, 게이밍 입문</span></div>
+              <span class="item-price">219,000원</span>
+            </div>
+            <div class="part-item" data-part="cpu" data-name="AMD 라이젠7 7800X3D" data-price="489000">
+              <span class="star">&#9734;</span>
+              <div class="info"><strong>AMD 라이젠7 7800X3D</strong><span>게이밍 성능 최강 CPU</span></div>
+              <span class="item-price">489,000원</span>
+            </div>
+            <div class="part-item" data-part="cpu" data-name="AMD 라이젠9 7950X" data-price="689000">
+              <span class="star">&#9734;</span>
+              <div class="info"><strong>AMD 라이젠9 7950X</strong><span>16코어, 작업용 끝판왕</span></div>
+              <span class="item-price">689,000원</span>
+            </div>
+            <div class="part-item" data-part="cpu" data-name="인텔 코어i5-14400F" data-price="239000">
+              <span class="star">&#9734;</span>
+              <div class="info"><strong>인텔 코어i5-14400F</strong><span>가성비 사무·게이밍용</span></div>
+              <span class="item-price">239,000원</span>
+            </div>
+          </div>
+
+          <!-- GPU 목록 -->
+          <div class="part-list list-gpu">
+            <div class="part-item selected" data-part="gpu" data-name="RTX 4060 8GB" data-price="379000">
+              <span class="star">&#9733;</span>
+              <div class="info"><strong>RTX 4060 8GB</strong><span>FHD 게이밍 입문용</span></div>
+              <span class="item-price">379,000원</span>
+            </div>
+            <div class="part-item" data-part="gpu" data-name="RTX 4070 SUPER 12GB" data-price="869000">
+              <span class="star">&#9734;</span>
+              <div class="info"><strong>RTX 4070 SUPER 12GB</strong><span>QHD 고주사율 게이밍</span></div>
+              <span class="item-price">869,000원</span>
+            </div>
+            <div class="part-item" data-part="gpu" data-name="RTX 4080 SUPER 16GB" data-price="1499000">
+              <span class="star">&#9734;</span>
+              <div class="info"><strong>RTX 4080 SUPER 16GB</strong><span>4K 게이밍·영상 작업용</span></div>
+              <span class="item-price">1,499,000원</span>
+            </div>
+            <div class="part-item" data-part="gpu" data-name="RX 7800 XT 16GB" data-price="689000">
+              <span class="star">&#9734;</span>
+              <div class="info"><strong>RX 7800 XT 16GB</strong><span>가성비 QHD 게이밍</span></div>
+              <span class="item-price">689,000원</span>
+            </div>
+          </div>
+
+          <!-- RAM 목록 -->
+          <div class="part-list list-ram">
+            <div class="part-item selected" data-part="ram" data-name="삼성 DDR5-5600 16GB" data-price="89000">
+              <span class="star">&#9733;</span>
+              <div class="info"><strong>삼성 DDR5-5600 16GB</strong><span>8GB x 2, 기본 게이밍용</span></div>
+              <span class="item-price">89,000원</span>
+            </div>
+            <div class="part-item" data-part="ram" data-name="팀그룹 DDR5-6000 32GB" data-price="169000">
+              <span class="star">&#9734;</span>
+              <div class="info"><strong>팀그룹 DDR5-6000 32GB</strong><span>16GB x 2, 멀티태스킹용</span></div>
+              <span class="item-price">169,000원</span>
+            </div>
+            <div class="part-item" data-part="ram" data-name="G.SKILL DDR5-6000 64GB" data-price="359000">
+              <span class="star">&#9734;</span>
+              <div class="info"><strong>G.SKILL DDR5-6000 64GB</strong><span>32GB x 2, 영상 편집용</span></div>
+              <span class="item-price">359,000원</span>
+            </div>
+            <div class="part-item" data-part="ram" data-name="삼성 DDR5-5600 8GB" data-price="45000">
+              <span class="star">&#9734;</span>
+              <div class="info"><strong>삼성 DDR5-5600 8GB</strong><span>8GB x 1, 사무용</span></div>
+              <span class="item-price">45,000원</span>
+            </div>
+          </div>
+
+          <!-- PSU 목록 -->
+          <div class="part-list list-psu">
+            <div class="part-item selected" data-part="psu" data-name="600W 80PLUS 브론즈" data-price="69000">
+              <span class="star">&#9733;</span>
+              <div class="info"><strong>600W 80PLUS 브론즈</strong><span>입문 게이밍 PC용</span></div>
+              <span class="item-price">69,000원</span>
+            </div>
+            <div class="part-item" data-part="psu" data-name="750W 80PLUS 골드" data-price="129000">
+              <span class="star">&#9734;</span>
+              <div class="info"><strong>750W 80PLUS 골드</strong><span>고성능 PC 안정 공급</span></div>
+              <span class="item-price">129,000원</span>
+            </div>
+            <div class="part-item" data-part="psu" data-name="850W 80PLUS 골드" data-price="159000">
+              <span class="star">&#9734;</span>
+              <div class="info"><strong>850W 80PLUS 골드</strong><span>고사양 그래픽카드용</span></div>
+              <span class="item-price">159,000원</span>
+            </div>
+            <div class="part-item" data-part="psu" data-name="1000W 80PLUS 플래티넘" data-price="259000">
+              <span class="star">&#9734;</span>
+              <div class="info"><strong>1000W 80PLUS 플래티넘</strong><span>워크스테이션용</span></div>
+              <span class="item-price">259,000원</span>
+            </div>
+          </div>
+
+          <!-- CASE 목록 -->
+          <div class="part-list list-case">
+            <div class="part-item" data-part="case" data-name="미니타워 M-ATX" data-price="39000">
+              <span class="star">&#9734;</span>
+              <div class="info"><strong>미니타워 M-ATX</strong><span>좁은 공간용 콤팩트 케이스</span></div>
+              <span class="item-price">39,000원</span>
+            </div>
+            <div class="part-item selected" data-part="case" data-name="미들타워 강화유리" data-price="69000">
+              <span class="star">&#9733;</span>
+              <div class="info"><strong>미들타워 강화유리</strong><span>가장 무난한 표준형 케이스</span></div>
+              <span class="item-price">69,000원</span>
+            </div>
+            <div class="part-item" data-part="case" data-name="빅타워 ATX" data-price="119000">
+              <span class="star">&#9734;</span>
+              <div class="info"><strong>빅타워 ATX</strong><span>최고의 확장성과 쿨링</span></div>
+              <span class="item-price">119,000원</span>
+            </div>
+            <div class="part-item" data-part="case" data-name="화이트 미들타워" data-price="89000">
+              <span class="star">&#9734;</span>
+              <div class="info"><strong>화이트 미들타워</strong><span>깔끔한 화이트 인테리어</span></div>
+              <span class="item-price">89,000원</span>
+            </div>
+          </div>
+
+          <!-- COOLER 목록 -->
+          <div class="part-list list-cooler">
+            <div class="part-item" data-part="cooler" data-name="공랭 기본 쿨러" data-price="19000">
+              <span class="star">&#9734;</span>
+              <div class="info"><strong>공랭 기본 쿨러</strong><span>CPU 기본 제공 수준</span></div>
+              <span class="item-price">19,000원</span>
+            </div>
+            <div class="part-item selected" data-part="cooler" data-name="타워형 공랭 쿨러" data-price="49000">
+              <span class="star">&#9733;</span>
+              <div class="info"><strong>타워형 공랭 쿨러</strong><span>조용하고 준수한 성능</span></div>
+              <span class="item-price">49,000원</span>
+            </div>
+            <div class="part-item" data-part="cooler" data-name="240mm 수랭 쿨러" data-price="99000">
+              <span class="star">&#9734;</span>
+              <div class="info"><strong>240mm 수랭 쿨러</strong><span>고성능 CPU 발열 잡기</span></div>
+              <span class="item-price">99,000원</span>
+            </div>
+            <div class="part-item" data-part="cooler" data-name="360mm 수랭 쿨러" data-price="159000">
+              <span class="star">&#9734;</span>
+              <div class="info"><strong>360mm 수랭 쿨러</strong><span>최상위 CPU 쿨링 성능</span></div>
+              <span class="item-price">159,000원</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- 총합 가격 표시 바 (JS가 실시간으로 업데이트) -->
+    <div class="builder-total-bar">
+      <span>선택한 부품 합계</span>
+      <strong id="builderTotal">1,063,000원</strong>
+    </div>
+
+    <!-- 하단 구매 / 장바구니 버튼 -->
+    <div class="builder-actions">
+      <button class="btn-fill" id="builderBuy">구매</button>
+      <button class="btn-line" id="builderCart">장바구니에 담기</button>
+    </div>
+
+  </main>
+
+  <!-- ===== 푸터 ===== -->
+  <footer class="footer">
+    <div class="container">
+      <p><strong>MyPC</strong> &nbsp;|&nbsp; 웹프로그래밍 기초 과제</p>
+      <p>인공지능소프트웨어과 1학년 장지혁</p>
+    </div>
+  </footer>
+
+  <!-- ===== JavaScript ===== -->
+  <script src="js/cart.js"></script>
+  <script>
+    /* ---- 0. 탭 전환 (JavaScript 클릭 이벤트로 카테고리 전환) ----
+       querySelectorAll('.part-tab')로 7개 탭 버튼 모두 선택
+       클릭 시:
+         1) 모든 탭과 모든 part-list에서 active 제거
+         2) 클릭된 탭과 대응하는 목록에 active 추가
+       data-target으로 어떤 목록을 열지 결정 (mb → .list-mb 등)
+    */
+    document.querySelectorAll('.part-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        const target = tab.dataset.target;
+
+        // 모든 탭에서 active 제거
+        document.querySelectorAll('.part-tab').forEach(t => t.classList.remove('active'));
+        // 모든 부품 목록 숨기기
+        document.querySelectorAll('.part-list').forEach(l => l.classList.remove('active'));
+
+        // 클릭된 탭 활성화
+        tab.classList.add('active');
+        // 해당 목록 표시
+        document.querySelector(`.list-${target}`).classList.add('active');
+      });
+    });
+
+
+    /* ---- 1. 선택된 부품 상태 관리 (객체로 7개 카테고리 저장) ----
+       각 카테고리별로 현재 선택된 { name, price }를 보관
+       초기값은 HTML에서 selected 클래스가 있는 부품들
+    */
+    const selectedParts = {
+      mb:     { name: 'ASUS PRIME B650M-A II', price: 189000 },
+      cpu:    { name: 'AMD 라이젠5 7500F',      price: 219000 },
+      gpu:    { name: 'RTX 4060 8GB',           price: 379000 },
+      ram:    { name: '삼성 DDR5-5600 16GB',    price:  89000 },
+      psu:    { name: '600W 80PLUS 브론즈',     price:  69000 },
+      case:   { name: '미들타워 강화유리',       price:  69000 },
+      cooler: { name: '타워형 공랭 쿨러',       price:  49000 },
+    };
+
+    /* ---- 2. 총합 가격 업데이트 함수 ----
+       Object.values()로 selectedParts의 모든 값을 배열로 변환
+       reduce()로 각 부품 가격을 누적 합산
+       toLocaleString()으로 1063000 → "1,063,000" 형식으로 변환
+    */
+    function updateTotal() {
+      const total = Object.values(selectedParts)
+        .reduce((sum, part) => sum + part.price, 0);
+      document.getElementById('builderTotal').textContent =
+        total.toLocaleString() + '원';
+    }
+
+    /* ---- 3. 부품 항목 클릭 이벤트 ----
+       querySelectorAll('.part-item')로 모든 부품 항목 선택
+       클릭 시:
+         1) 같은 카테고리(data-part) 항목의 selected 클래스 모두 제거
+         2) 클릭된 항목에만 selected 클래스 추가
+         3) 별 아이콘 변경 (★ / ☆)
+         4) 왼쪽 패널의 selected-name 텍스트 업데이트
+         5) selectedParts 객체 업데이트
+         6) updateTotal()로 총합 재계산
+    */
+    document.querySelectorAll('.part-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const partType = item.dataset.part;
+        const name     = item.dataset.name;
+        const price    = parseInt(item.dataset.price, 10);
+
+        // 같은 카테고리 내 모든 항목에서 선택 해제
+        document.querySelectorAll(`.part-item[data-part="${partType}"]`).forEach(el => {
+          el.classList.remove('selected');
+          el.querySelector('.star').textContent = '☆'; // 빈 별
+        });
+
+        // 클릭된 항목 선택 처리
+        item.classList.add('selected');
+        item.querySelector('.star').textContent = '★'; // 채워진 별
+
+        // 왼쪽 패널 이름 업데이트
+        const nameEl = document.getElementById(`sel-${partType}`);
+        if (nameEl) nameEl.textContent = name;
+
+        // 상태 저장 및 총합 업데이트
+        selectedParts[partType] = { name, price };
+        updateTotal();
+      });
+    });
+
+
+    /* ---- 4. 장바구니 / 구매 버튼 ----
+       선택된 7개 부품 합계 금액으로 "커스텀 PC"를 장바구니에 추가
+    */
+    function addCustomPC() {
+      const total = Object.values(selectedParts)
+        .reduce((sum, p) => sum + p.price, 0);
+      Cart.add('커스텀 조립 PC', total);
+      showToast('커스텀 조립 PC를 장바구니에 담았습니다!');
+    }
+
+    document.getElementById('builderBuy').addEventListener('click', addCustomPC);
+    document.getElementById('builderCart').addEventListener('click', addCustomPC);
+
+
+    /* ---- 5. 장바구니 모듈 초기화 ---- */
+    Cart.init();
+  </script>
+
+</body>
+</html>

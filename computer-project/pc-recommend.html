@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyPC - PC 추천</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== 헤더 ===== -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">My<span>PC</span></a>
+      <div class="header-buttons">
+        <button class="btn-outline">장바구니 <span class="cart-badge" style="display:none">0</span></button>
+        <button class="btn-outline">로그인</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== 네비게이션 ===== -->
+  <nav class="nav">
+    <div class="container">
+      <ul>
+        <li><a href="index.html">모든 부품</a></li>
+        <li><a href="index.html">커뮤니티</a></li>
+        <li><a href="index.html">주변 기기</a></li>
+        <li><a href="my-computer.html">나만의 컴퓨터</a></li>
+        <li><a href="pc-recommend.html" class="active">PC 추천</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container">
+
+    <div class="page-title">
+      <h1>PC 추천</h1>
+      <p>사용 목적을 선택하면 조건에 맞는 완성형 PC를 추천해 드립니다.</p>
+    </div>
+
+    <!-- ===== 카테고리 선택 박스 (JavaScript 클릭 이벤트로 동작) ===== -->
+    <div class="category-box">
+      <p class="hint">&#9432; 상위 카테고리를 선택하면 미리 정해진 하위 카테고리 선택란이 나타납니다.</p>
+
+      <!-- button.cat-btn으로 카테고리 선택, data-cat으로 대응 서브카테고리 지정 -->
+      <div class="category-row">
+        <button class="cat-btn active" data-cat="1">게이밍</button>
+        <button class="cat-btn" data-cat="2">사무용</button>
+        <button class="cat-btn" data-cat="3">크리에이터</button>
+        <button class="cat-btn" data-cat="4">가성비</button>
+      </div>
+
+      <!-- active 클래스가 있는 subcategory만 표시 -->
+      <div class="subcategory sub-cat1 active">
+        <span>입문형 (RTX 4060)</span>
+        <span>고성능 (RTX 4070)</span>
+        <span>최고사양 (RTX 4080)</span>
+        <span>고주사율 특화</span>
+      </div>
+      <div class="subcategory sub-cat2">
+        <span>문서·인터넷용</span>
+        <span>멀티태스킹용</span>
+        <span>저소음 구성</span>
+      </div>
+      <div class="subcategory sub-cat3">
+        <span>영상 편집용</span>
+        <span>3D·렌더링용</span>
+        <span>대용량 메모리</span>
+      </div>
+      <div class="subcategory sub-cat4">
+        <span>50만원대</span>
+        <span>70만원대</span>
+        <span>100만원 이하</span>
+      </div>
+
+      <button class="research-btn">재검색</button>
+    </div>
+
+    <!-- ===== 추천 결과: 사양 상세 카드 3개
+         data-name: 장바구니에 저장될 상품명
+         data-price: 가격 (숫자, 원 단위)
+    ===== -->
+    <section class="spec-grid">
+
+      <article class="spec-card" data-name="가성비 게이밍 PC" data-price="899000">
+        <div class="spec-thumb">&#128421;</div>
+        <h3 class="spec-name">가성비 게이밍 PC</h3>
+        <div class="spec-row price"><span class="label">가격</span><span class="value">899,000원</span></div>
+        <div class="spec-row"><span class="label">메인보드</span><span class="value">ASUS PRIME B650M</span></div>
+        <div class="spec-row"><span class="label">CPU</span><span class="value">라이젠5 7500F</span></div>
+        <div class="spec-row"><span class="label">GPU</span><span class="value">RTX 4060 8GB</span></div>
+        <div class="spec-row"><span class="label">RAM</span><span class="value">16GB DDR5</span></div>
+        <div class="spec-row"><span class="label">PSU</span><span class="value">600W 브론즈</span></div>
+        <div class="spec-row"><span class="label">CASE</span><span class="value">미들타워 ATX</span></div>
+        <div class="spec-row"><span class="label">COOLER</span><span class="value">공랭 기본 쿨러</span></div>
+        <div class="card-buttons">
+          <button class="btn-fill">구매</button>
+          <button class="btn-line">장바구니</button>
+        </div>
+      </article>
+
+      <article class="spec-card" data-name="고성능 게이밍 PC" data-price="1690000">
+        <div class="spec-thumb">&#128421;</div>
+        <h3 class="spec-name">고성능 게이밍 PC</h3>
+        <div class="spec-row price"><span class="label">가격</span><span class="value">1,690,000원</span></div>
+        <div class="spec-row"><span class="label">메인보드</span><span class="value">MSI MAG B650</span></div>
+        <div class="spec-row"><span class="label">CPU</span><span class="value">라이젠7 7800X3D</span></div>
+        <div class="spec-row"><span class="label">GPU</span><span class="value">RTX 4070 SUPER</span></div>
+        <div class="spec-row"><span class="label">RAM</span><span class="value">32GB DDR5</span></div>
+        <div class="spec-row"><span class="label">PSU</span><span class="value">750W 골드</span></div>
+        <div class="spec-row"><span class="label">CASE</span><span class="value">미들타워 강화유리</span></div>
+        <div class="spec-row"><span class="label">COOLER</span><span class="value">360mm 수랭</span></div>
+        <div class="card-buttons">
+          <button class="btn-fill">구매</button>
+          <button class="btn-line">장바구니</button>
+        </div>
+      </article>
+
+      <article class="spec-card" data-name="크리에이터 워크스테이션" data-price="2490000">
+        <div class="spec-thumb">&#128421;</div>
+        <h3 class="spec-name">크리에이터 워크스테이션</h3>
+        <div class="spec-row price"><span class="label">가격</span><span class="value">2,490,000원</span></div>
+        <div class="spec-row"><span class="label">메인보드</span><span class="value">ASUS ProArt X670E</span></div>
+        <div class="spec-row"><span class="label">CPU</span><span class="value">라이젠9 7950X</span></div>
+        <div class="spec-row"><span class="label">GPU</span><span class="value">RTX 4080 SUPER</span></div>
+        <div class="spec-row"><span class="label">RAM</span><span class="value">64GB DDR5</span></div>
+        <div class="spec-row"><span class="label">PSU</span><span class="value">1000W 플래티넘</span></div>
+        <div class="spec-row"><span class="label">CASE</span><span class="value">빅타워 ATX</span></div>
+        <div class="spec-row"><span class="label">COOLER</span><span class="value">360mm 수랭</span></div>
+        <div class="card-buttons">
+          <button class="btn-fill">구매</button>
+          <button class="btn-line">장바구니</button>
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+  <!-- ===== 푸터 ===== -->
+  <footer class="footer">
+    <div class="container">
+      <p><strong>MyPC</strong> &nbsp;|&nbsp; 웹프로그래밍 기초 과제</p>
+      <p>인공지능소프트웨어과 1학년 장지혁</p>
+    </div>
+  </footer>
+
+  <!-- ===== JavaScript ===== -->
+  <script src="js/cart.js"></script>
+  <script>
+    /* ---- 1. 장바구니 초기화 ---- */
+    Cart.init();
+
+    /* ---- 2. 카테고리 탭 전환 (JavaScript 클릭 이벤트) ----
+       querySelectorAll('.cat-btn')으로 4개 버튼 선택
+       클릭 시:
+         1) 모든 .cat-btn에서 active 제거
+         2) 모든 .subcategory에서 active 제거
+         3) 클릭된 버튼과 대응하는 sub-catN에 active 추가
+       data-cat 속성으로 어떤 서브카테고리를 열지 결정
+    */
+    document.querySelectorAll('.cat-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const cat = btn.dataset.cat;
+
+        // 모든 버튼에서 active 제거
+        document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+        // 모든 서브카테고리 숨기기
+        document.querySelectorAll('.subcategory').forEach(s => s.classList.remove('active'));
+
+        // 클릭된 버튼 및 대응 서브카테고리 표시
+        btn.classList.add('active');
+        document.querySelector(`.sub-cat${cat}`).classList.add('active');
+      });
+    });
+
+    /* ---- 3. 추천 PC 카드 버튼에 장바구니 이벤트 연결 ---- */
+    document.querySelectorAll('.spec-card').forEach(card => {
+      const name  = card.dataset.name;
+      const price = parseInt(card.dataset.price, 10);
+
+      card.querySelector('.btn-fill').addEventListener('click', () => {
+        Cart.add(name, price);
+        showToast(`${name}을(를) 장바구니에 담았습니다!`);
+      });
+
+      card.querySelector('.btn-line').addEventListener('click', () => {
+        Cart.add(name, price);
+        showToast(`${name}을(를) 장바구니에 담았습니다!`);
+      });
+    });
+  </script>
+
+</body>
+</html>
